@@ -8,6 +8,13 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        String input= args[0];
+        String i= args[1];
+        int y= Integer.parseInt(i);
+        //int moment = Integer.parseInt(args[1]);
+        System.out.println("Start to calculate the moment");
+        double ex_moment= DistributionUtilities.getMoment(y,input);
+        System.out.println("The moment("+2+ ") = " + ex_moment);
+        System.out.println("exiting from the program");
     }
 }
