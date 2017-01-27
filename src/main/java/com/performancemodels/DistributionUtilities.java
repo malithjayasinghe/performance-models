@@ -7,43 +7,32 @@ import java.io.*;
  */
 public class DistributionUtilities {
 
-    public static double getMean(int i, String FileName){
+    public static double getMean(int i, String FileName) {
 
-        String text = null;
-        BufferedReader reader = null;
-        double sum=0;
-        double count=0;
-        double mean=0;
-        try {
-            reader = new BufferedReader(new FileReader(FileName));
-            while ((text = reader.readLine()) != null) {
-
-                sum=sum+Double.parseDouble(text);
-
-                count++;
-
-
-
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
+        String sLineValue;
+        int moment = i;
+        BufferedReader reader;
+        double sum = 0;
+        double count = 0;
+        double mean;
+        if (moment==1) {
             try {
-                if (reader != null) {
-                    reader.close();
+                reader = new BufferedReader(new FileReader(FileName));
+                while ((sLineValue = reader.readLine()) != null) {
+                    sum = sum + Double.parseDouble(sLineValue);
+                    count++;
                 }
+                reader.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
             } catch (IOException e) {
+                e.printStackTrace();
             }
+        } else {
+            System.out.println("vvvvvvvvvvv");
         }
-        mean=sum/count;
-       System.out.println(""+sum+"   "+mean);
-
-
+        mean = sum / count;
         return mean;
-
-
 
     }
 }
