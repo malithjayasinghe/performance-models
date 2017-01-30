@@ -12,13 +12,13 @@ public class DistributionUtilities {
         String sLineValue;
         BufferedReader reader;
         double sum = 0;
-        double count = 0;
+        double n = 0;
         double mean;
             try {
                 reader = new BufferedReader(new FileReader(FileName));
                 while ((sLineValue = reader.readLine()) != null) {
                     sum = sum + Double.parseDouble(sLineValue);
-                    count++;
+                    n++;
                 }
                 reader.close();
             } catch (FileNotFoundException e) {
@@ -26,7 +26,7 @@ public class DistributionUtilities {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        mean = sum / count;
+        mean = sum / n;
         return mean;
     }
 }
